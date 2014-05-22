@@ -1,0 +1,11 @@
+{
+  "name": "language-modelica",
+  "version": "0.0.1",
+  "description": "Modelica grammar support",
+  "repository": "https://github.com/raphaelchenouard/atom-language-modelica",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {}
+}

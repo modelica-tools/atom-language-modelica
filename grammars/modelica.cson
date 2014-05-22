@@ -1,0 +1,191 @@
+'fileTypes': [
+  'mo'
+  'mos'
+]
+'foldingStartMarker': '/\\*\\*(?!\\*)|\\{\\s*($|/\\*(?!.*?\\*/.*\\S))'
+'foldingStopMarker': '(?<!\\*)\\*\\*/|^\\s*\\}'
+'name': 'Modelica'
+'scopeName': 'source.modelica'
+'patterns': [
+    {
+        'include': '#typedef'
+    }
+    {
+        'include': '#control'
+    }
+    {
+        'include': '#modelicakw'
+    }
+    
+    {
+        'include': '#comments'
+    }
+    
+    {
+    'match': '\\b(private|protected|public)\\b'
+    'name': 'storage.modifier.modelica'
+    }
+    {
+        'match': '\\b(Boolean|uniontype|list|String|Option|tuple|parallel|Enum|Real|Integer)\\b'
+        'name': 'support.type.modelica'
+    }
+    {
+        'match': '\\b(der|pre|pow|connect|change|edge|reinit|size)\\b'
+        'name': 'support.function.modelica'
+    }
+    {
+        'match': '\\b(start|min|max)'
+        'name': 'support.other.modelica'
+    }
+    {
+        'match': '\\bg[A-Z]\\w*\\b'
+        'name': 'variable.other.readwrite.global.modelica'
+    }
+    {
+        'match': '\\b(NULL|true|false|TRUE|FALSE)\\b'
+        'name': 'constant.language.modelica'
+    }
+    {
+        'match': '\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b'
+        'name': 'constant.numeric.modelica'
+    }
+    {
+        'begin': '"'
+        'beginCaptures':
+            '0':
+                'name': 'string.quoted.begin.modelica'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'string.quoted.end.modelica'
+        'name': 'string.quoted.double.modelica'
+        'patterns': [
+          {
+            'include': '#string_escaped_char'
+          }
+          {
+            'include': '#string_placeholder'
+          }
+        ]
+    }
+    
+]
+'repository':
+    'operators':
+        'patterns': [
+            'match': '(\\+|\\-|in|\\/|and|or)'
+            'name': 'keyword.operator.modelica'
+        ]
+    'comments':
+        'patterns': [
+            {
+                'begin': '/\\*'
+                'beginCaptures':
+                  '0':
+                    'name': 'comment.block.begin.modelica'
+                'end': '\\*/'
+                'endCaptures':
+                    '0':
+                        'name': 'comment.block.end.modelica'
+                'name': 'comment.block.modelica'
+            }
+            {
+                'begin': '//'
+                'beginCaptures':
+                    '0':
+                        'name': 'comment.line.modelica'
+                'end': '\\n'
+                'name': 'comment.line.double-slash.modelica'
+                'patterns': [
+                    {
+                        'match': '(?>\\\\\\s*\\n)'
+                        'name': 'punctuation.separator.continuation.modelica'
+                    }
+                ]
+            }
+        ]
+    'typedef':
+        'patterns': [
+            {
+                'begin': '\\b(package|class|model|function|record|block)\\b \s*[a-zA-Z0-9_]+'
+                'beginCaptures':
+                    '0':
+                        'name': 'storage.type.modelica'
+                    '1':
+                        'name': 'variable.other.modelica'
+                'end': '\\bend\\b \s*[a-zA-Z0-9_]+\s*;'
+                'EndCaptures':
+                    '0':
+                        'name': 'keyword.control.modelica'
+                    '1':
+                        'name': 'variable.other.modelica'
+                'patterns': [
+                    {
+                        'include': '$self'
+                    }
+                    {
+                        'include': '#modifier'
+                    }
+                ]
+            }
+        ]
+    'modelicakw':
+        'patterns': [
+            {
+                'match': '\\b(equation|algorithm|within)\\b'
+                'name': 'keyword.other.modelica'
+            }
+        ]
+    'control':
+        'patterns': [
+            {
+                'match': '\\b(loop|do|else|if|then|end|return)\\b'
+                'name': 'keyword.control.modelica'
+            }
+            {
+                'begin': '\\b(when|for|while)\\b'
+                'beginCaptures':
+                    '0':
+                        'name': 'keyword.control.modelica'
+                'end': '\\bend\\b \s*(when|for|while)\s*;'
+                'EndCaptures':
+                    '0':
+                        'name': 'keyword.control.modelica'
+                    '1':
+                        'name': 'keyword.control.modelica'
+                'patterns': [
+                    {
+                        'include': '$self'
+                    }
+                ]
+            }
+        ]
+    'modifier':
+        'patterns': [
+            {
+                'match': '\\b(within|parameter|replaceable|redeclare|partial|discrete|extends|import|connect|input|output|constant)\\b'
+                'name': 'storage.modifier.modelica'
+            }
+        ]
+    'string_escaped_char':
+        'patterns': [
+            {
+                'match': '\\\\(\\\\|[abefnprtv\'"?]|[0-3]\\d{,2}|[4-7]\\d?|x[a-fA-F0-9]{,2}|u[a-fA-F0-9]{,4}|U[a-fA-F0-9]{,8})'
+                'name': 'constant.character.escape.modelica'
+            }
+            {
+                'match': '\\\\.'
+                'name': 'invalid.illegal.unknown-escape.modelica'
+            }
+        ]
+    'string_placeholder':
+        'patterns': [
+            {
+                'match': '(?x)%\n \t\t\t\t\t\t(\\d+\\$)? # field (argument #)\n \t\t\t\t\t\t[#0\\- +\']* # flags\n \t\t\t\t\t\t[,;:_]? # separator character (AltiVec)\n \t\t\t\t\t\t((-?\\d+)|\\*(-?\\d+\\$)?)? # minimum field width\n \t\t\t\t\t\t(\\.((-?\\d+)|\\*(-?\\d+\\$)?)?)? # precision\n \t\t\t\t\t\t(hh|h|ll|l|j|t|z|q|L|vh|vl|v|hv|hl)? # length modifier\n \t\t\t\t\t\t[diouxXDOUeEfFgGaACcSspn%] # conversion type\n \t\t\t\t\t'
+                'name': 'constant.other.placeholder.modelica'
+            }
+            {
+                'match': '%'
+                'name': 'invalid.illegal.placeholder.modelica'
+            }
+        ]
