@@ -16,6 +16,9 @@
     {
         'include': '#comments'
     }
+    {
+        'include': '#modelicakw'
+    }
     
     {
         'begin': '"'
@@ -39,6 +42,13 @@
     
 ]
 'repository':
+    'modelicakw':
+        'patterns': [
+            {
+                'match': '\\b(initial|partial|encapsulated|impure|expandable|external|operator|pure|each|constrainedby)\\b'
+                'name': 'keyword.other.modelica'
+            }
+        ]
     'modelicawi':
         'patterns': [
             {
@@ -49,7 +59,7 @@
     'typedef':
         'patterns': [
             {
-                'begin': '\\b(package|class|model|function|record|block)\\b [a-zA-Z0-9_]+\\b'
+                'begin': '\\b(package|class|model|function|record|block|connector|type)\\b [a-zA-Z0-9_]+\\b'
                 'beginCaptures':
                     '0':
                         'name': 'entity.name.type.modelica'
@@ -71,7 +81,17 @@
                     {
                         'include': '#modelicaeqal'
                     }
+                    {
+                        'include': '#modelicakw'
+                    }
                 ]
+            }
+        ]
+    'modelicatypes':
+        'patterns': [
+            {
+                'match': '\\b(Boolean|enumeration|String|Real|Integer)\\b'
+                'name': 'support.type.modelica'
             }
         ]
     'featuredef':
@@ -81,11 +101,10 @@
                 'name': 'storage.modifier.modelica'
             }
             {
-                'match': '\\b(Boolean|uniontype|list|String|Option|tuple|parallel|Enum|Real|Integer)\\b'
-                'name': 'support.type.modelica'
+                'include': '#modelicatypes'
             }
             {
-                'include': '#modifier'
+                'include': '#modelicafeaturemodifier'
             }
             {
                 'include': '#modelicafeatureopt'
@@ -102,11 +121,14 @@
             {
                 'include': '#values'
             }
+            {
+                'include': '#modelicakw'
+            }
         ]
     'values':
         'patterns': [
             {
-                'match': '\\b(NULL|true|false|TRUE|FALSE)\\b'
+                'match': '\\b(true|false)\\b'
                 'name': 'constant.language.modelica'
             }
             {
@@ -117,14 +139,14 @@
     'operators':
         'patterns': [
             {
-                'match': '\\b(\\+|\\-|in|\\/|and|or|\\<|\\>|\\<\\=|\\=\\=|\\>\\=)\\b'
+                'match': '\\b(\\+|\\-|in|\\/|and|or|not|\\<|\\>|\\<\\=|\\=\\=|\\>\\=)\\b'
                 'name': 'keyword.operator.modelica'
             }
         ]
     'modelicafuncall':
         'patterns': [
             {
-                'match': '\\b(der|pre|pow|connect|change|edge|reinit|size)\\b'
+                'match': '\\b(der|pre|pow|connect|change|edge|reinit|size|assert|abs|sign|sqrt|Integer|String|div|mod|rem|ceil|floor|integer|sin|cos|tan|asin|acos|atan|atan2|sinh|cosh|tanh|exp|log|log10|delay|cardinality|homotopy|semiLinear|inStream|actualStream|spatialDistribution|getInstanceName|terminal|initial|noEvent|smooth|sample)\\b'
                 'name': 'support.function.modelica'
             }
     ]
@@ -134,6 +156,8 @@
                 'begin': '\\b(equation|algorithm)\\b'
                 'beginCaptures':
                     '0':
+                        'name': 'keyword.other.modelica'
+                    '1':
                         'name': 'keyword.other.modelica'
                 'end': '\\b(end)\\b'
                 'patterns': [
@@ -149,14 +173,26 @@
                     {
                         'include': '#values'
                     }
+                    {
+                        'include': '#modelicakw'
+                    }
                 ]
             }
         ]
     'modelicafeatureopt':
         'patterns': [
             {
-                'match': '\\b(start|min|max)\\b'
+                'match': '\\b(start|min|max|each)\\b'
                 'name': 'keyword.other.modelica'
+            }
+            {
+                'include': '#modelicakw'
+            }
+            {
+                'include': '#operators'
+            }
+            {
+                'include': '#control'
             }
         ]
     'modelicavar':
@@ -169,11 +205,11 @@
     'control':
         'patterns': [
             {
-                'match': '\\b(loop|do|else|if|then|end|return)\\b'
+                'match': '\\b(loop|do|else|if|then|end|return|break|elseif|elsewhen)\\b'
                 'name': 'keyword.control.modelica'
             }
             {
-                'begin': '\\b(when|for|while)\\b'
+                'begin': '\\b(when|for|while|if)\\b'
                 'beginCaptures':
                     '0':
                         'name': 'keyword.control.modelica'
@@ -199,13 +235,16 @@
                     {
                         'include': '#operators'
                     }
+                    {
+                        'include': '#modelicakw'
+                    }
                 ]
             }
         ]
-    'modifier':
+    'modelicafeaturemodifier':
         'patterns': [
             {
-                'match': '\\b(within|parameter|replaceable|redeclare|partial|discrete|extends|import|connect|input|output|constant)\\b'
+                'match': '\\b(flow|stream|final|within|parameter|replaceable|redeclare|partial|discrete|extends|import|input|output|constant|inner|outer)\\b'
                 'name': 'storage.modifier.modelica'
             }
         ]

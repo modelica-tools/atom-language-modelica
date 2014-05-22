@@ -1,0 +1,37 @@
+".source.modelica":
+    "Comments":
+        prefix: "/*"
+        body: "/* $1 */"
+    "Model":
+        prefix: "mo"
+        body: "model $1\n\t$2\nend $1;"
+    "Function":
+        prefix: "fu"
+        body: "function $1\n\t$2\nend $1;"
+    "Record":
+        prefix: "re"
+        body: "record $1\n\t$2\nend $1;"
+    "Class":
+        prefix: "cl"
+        body: "class $1\n\t$2\nend $1;"
+    "Block":
+        prefix: "bl"
+        body: "block $1\n\t$2\nend $1;"
+    "Package":
+        prefix: "pa"
+        body: "package $1\n\t$2\nend $1;"
+    "For":
+        prefix: "for"
+        body: "for $1 in $2:$3 loop\n\nend for;"
+    "While":
+        prefix: "while"
+        body: "while $1 loop\n$2\nend while;"
+    "if":
+        prefix: "if"
+        body: "if $1 then\n\t$2\nend if;"
+    "When":
+        prefix: "when"
+        body: "when $1 thne\n\t$2\nend when;"
+    "Assert":
+        prefix: "as"
+        body: "assert($1,$2,$3);"
