@@ -1,6 +1,5 @@
 'fileTypes': [
   'mo'
-  'mos'
 ]
 'foldingStartMarker': '/\\*\\*(?!\\*)|\\{\\s*($|/\\*(?!.*?\\*/.*\\S))'
 'foldingStopMarker': '(?<!\\*)\\*\\*/|^\\s*\\}'
@@ -18,6 +17,9 @@
     }
     {
         'include': '#modelicakw'
+    }
+    {
+        'include': '#annotations'
     }
     
     {
@@ -79,10 +81,16 @@
                         'include': '#featuredef'
                     }
                     {
-                        'include': '#modelicaeqal'
+                        'include': '#modelicastmt'
+                    }
+                    {
+                        'include': '#modelicafuncall'
                     }
                     {
                         'include': '#modelicakw'
+                    }
+                    {
+                        'include': '#annotations'
                     }
                 ]
             }
@@ -124,6 +132,9 @@
             {
                 'include': '#modelicakw'
             }
+            {
+                'include': '#annotations'
+            }
         ]
     'values':
         'patterns': [
@@ -150,16 +161,11 @@
                 'name': 'support.function.modelica'
             }
     ]
-    'modelicaeqal':
+    'modelicastmt':
         'patterns': [
             {
-                'begin': '\\b(equation|algorithm)\\b'
-                'beginCaptures':
-                    '0':
-                        'name': 'keyword.other.modelica'
-                    '1':
-                        'name': 'keyword.other.modelica'
-                'end': '\\b(end)\\b'
+                'match': '\\b(equation|algorithm)\\b'
+                'name': 'keyword.other.modelica'
                 'patterns': [
                     {
                         'include': '#control'
@@ -175,6 +181,9 @@
                     }
                     {
                         'include': '#modelicakw'
+                    }
+                    {
+                        'include': '#annotations'
                     }
                 ]
             }
@@ -198,7 +207,7 @@
     'modelicavar':
         'patterns': [
             {
-                'match': '\\bg[A-Z]\\w*\\b'
+                'match': '\\bg[a-zA-Z0-9]\\w*\\b'
                 'name': 'variable.other.readwrite.modelica'
             }
         ]
@@ -246,6 +255,18 @@
             {
                 'match': '\\b(flow|stream|final|within|parameter|replaceable|redeclare|partial|discrete|extends|import|input|output|constant|inner|outer)\\b'
                 'name': 'storage.modifier.modelica'
+            }
+        ]
+
+    'annotations':
+        'patterns': [
+            {
+                'begin': '\\b(annotation)\\b'
+                'beginCaptures':
+                    '0':
+                        'name': 'keyword.other.modelica'
+                'end': ';'
+                'name': 'comment.block.annotation.modelica'
             }
         ]
     'comments':
