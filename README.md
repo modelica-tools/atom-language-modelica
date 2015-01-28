@@ -24,3 +24,7 @@ Current code shortcuts (type given code + tab):
 ## TODO:
 
 * known bug: end keywork not well highlighted
+
+## License
+
+MIT
