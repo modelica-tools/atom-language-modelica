@@ -21,7 +21,7 @@
     {
         'include': '#annotations'
     }
-    
+
     {
         'begin': '"'
         'beginCaptures':
@@ -41,7 +41,7 @@
           }
         ]
     }
-    
+
 ]
 'repository':
     'modelicakw':
@@ -160,7 +160,7 @@
                 'match': '\\b(der|pre|pow|connect|change|edge|reinit|size|assert|abs|sign|sqrt|Integer|String|div|mod|rem|ceil|floor|integer|sin|cos|tan|asin|acos|atan|atan2|sinh|cosh|tanh|exp|log|log10|delay|cardinality|homotopy|semiLinear|inStream|actualStream|spatialDistribution|getInstanceName|terminal|initial|noEvent|smooth|sample)\\b'
                 'name': 'support.function.modelica'
             }
-    ]
+        ]
     'modelicastmt':
         'patterns': [
             {
