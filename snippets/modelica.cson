@@ -3,22 +3,22 @@
         prefix: "/*"
         body: "/* $1 */"
     "Model":
-        prefix: "mo"
+        prefix: "model"
         body: "model $1\n\t$2\nend $1;"
     "Function":
-        prefix: "fu"
+        prefix: "function"
         body: "function $1\n\t$2\nend $1;"
     "Record":
-        prefix: "re"
+        prefix: "record"
         body: "record $1\n\t$2\nend $1;"
     "Class":
-        prefix: "cl"
+        prefix: "class"
         body: "class $1\n\t$2\nend $1;"
     "Block":
-        prefix: "bl"
+        prefix: "block"
         body: "block $1\n\t$2\nend $1;"
     "Package":
-        prefix: "pa"
+        prefix: "package"
         body: "package $1\n\t$2\nend $1;"
     "For":
         prefix: "for"
@@ -32,6 +32,3 @@
     "When":
         prefix: "when"
         body: "when $1 then\n\t$2\nend when;"
-    "Assert":
-        prefix: "as"
-        body: "assert($1, $2, $3);"
