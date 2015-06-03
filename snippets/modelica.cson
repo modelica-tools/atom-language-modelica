@@ -7,7 +7,7 @@
         body: "model $1\n\t$2\nend $1;"
     "Function":
         prefix: "function"
-        body: "function $1\n\t$2\nend $1;"
+        body: "function $1\n\t$2\nalgorithm\n\t$3\nend $1;"
     "Record":
         prefix: "record"
         body: "record $1\n\t$2\nend $1;"
