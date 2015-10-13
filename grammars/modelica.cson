@@ -21,7 +21,6 @@
     {
         'include': '#annotations'
     }
-
     {
         'begin': '"'
         'beginCaptures':
@@ -265,8 +264,27 @@
                 'beginCaptures':
                     '0':
                         'name': 'keyword.other.modelica'
-                'end': ';'
+                'end': '\\)\\s*;\\s*$'
                 'name': 'comment.block.annotation.modelica'
+                # 'patterns': [
+                #     {
+                #       'begin': '(?i)<html>'
+                #       'beginCaptures':
+                #         '0':
+                #           'name': 'support.modelica'
+                #       'end': '(?i)</html>'
+                #       'endCaptures':
+                #         '0':
+                #           'name': 'support.modelica'
+                #       'name': 'markup.code.html.modelica'
+                #       'contentName': 'source.html.basic'
+                #       'patterns': [
+                #         {
+                #           'include': 'text.html.basic'
+                #         }
+                #       ]
+                #     }
+                # ]
             }
         ]
     'comments':

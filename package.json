@@ -1,5 +1,6 @@
 {
   "name": "language-modelica",
+  "main": "./lib/modelica",
   "version": "0.1.0",
   "description": "Modelica grammar support",
   "repository": "https://github.com/raphaelchenouard/atom-language-modelica",
@@ -7,5 +8,8 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "atom-space-pen-views": "^2.0.5",
+    "underscore-plus": "^1.6.6"
+  }
 }
