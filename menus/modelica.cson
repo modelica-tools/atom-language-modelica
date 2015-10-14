@@ -1,0 +1,12 @@
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Modelica'
+      'submenu': [
+        { 'label': 'Toggle all annotations', 'command': 'language-modelica:toggleallannotations' }
+        { 'label': 'Toggle documentation view', 'command': 'language-modelica:toggledocview' }
+      ]
+    ]
+  }
+]
