@@ -39,7 +39,7 @@ The HTML documentation in a file can be shown with the `toggledocview` command.
 Here is an example showing syntax highlighting, toggling annotations, and
 documentation view.
 
-![language-modelica in action](https://github.com/tshort/atom-language-modelica/raw/master/atom-modelica.gif)
+![language-modelica in action](https://github.com/modelic-tools/atom-language-modelica/raw/master/atom-modelica.gif)
 
 ## Key mappings
 
