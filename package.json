@@ -3,7 +3,7 @@
   "main": "./lib/modelica",
   "version": "0.1.0",
   "description": "Modelica grammar support",
-  "repository": "https://github.com/raphaelchenouard/atom-language-modelica",
+  "repository": "https://github.com/modelica-tools/atom-language-modelica",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
