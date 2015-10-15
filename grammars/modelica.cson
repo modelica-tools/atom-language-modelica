@@ -98,7 +98,7 @@ patterns: [
   }
   {
     begin: "annotation"
-    end: ");\\s*\\n"
+    end: '\\)\\s*;\\s*$'
     name: "comment.block"
     patterns: [
       {
