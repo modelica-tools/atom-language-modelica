@@ -2,7 +2,7 @@
 
 Adds syntax highlighting and snippets to Modelica files in [Atom](https://atom.io/ "Atom").
 
-Originally inspired from the c/c++ plugin and from latex plugin.
+Originally inspired from the c/c++ plugin and from the L<sup>A</sup>T<sub>E</sub>X plugin.
 
 ## Snippets
 
