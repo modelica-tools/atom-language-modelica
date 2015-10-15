@@ -1,0 +1,9 @@
+".source.modelica":
+  editor:
+    increaseIndentPattern: '''
+      (?x)^\s*
+          \b(
+             if|for|when|else|elsewhen|model|package|equation|initial equation|protected|record|block
+      	)\b
+    '''
+    decreaseIndentPattern: "^\\s*\\b(end|else|elsewhen|equation|initial equation)\\b"
