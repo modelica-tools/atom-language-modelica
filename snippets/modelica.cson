@@ -1,34 +1,108 @@
 ".source.modelica":
-    "Comments":
-        prefix: "/*"
-        body: "/* $1 */"
-    "Model":
-        prefix: "model"
-        body: "model $1\n\t$2\nend $1;"
-    "Function":
-        prefix: "function"
-        body: "function $1\n\t$2\nalgorithm\n\t$3\nend $1;"
-    "Record":
-        prefix: "record"
-        body: "record $1\n\t$2\nend $1;"
-    "Class":
-        prefix: "class"
-        body: "class $1\n\t$2\nend $1;"
-    "Block":
-        prefix: "block"
-        body: "block $1\n\t$2\nend $1;"
-    "Package":
-        prefix: "package"
-        body: "package $1\n\t$2\nend $1;"
-    "For":
-        prefix: "for"
-        body: "for $1 in $2:$3 loop\n\t$4\nend for;"
-    "While":
-        prefix: "while"
-        body: "while $1 loop\n\t$2\nend while;"
-    "if":
-        prefix: "if"
-        body: "if $1 then\n\t$2\nend if;"
-    "When":
-        prefix: "when"
-        body: "when $1 then\n\t$2\nend when;"
+  "Modelica block definition":
+    prefix: "block"
+    body: '''
+      
+      block ${1} "${2}"
+        ${3}
+      equation
+        ${4}
+      end ${1};
+      
+    '''
+  "Modelica class":
+    prefix: "class"
+    body: '''
+      
+      class ${1:ClassName} "${2:Description}"
+        ${3}
+      equation
+        ${4}
+      end ${1:ClassName};
+      
+    '''
+  "Modelica connect-equation":
+    prefix: "connect"
+    body: '''
+      
+      connect(${1:connector1}, ${2:connector2});
+      
+    '''
+  "Modelica fluid connector definition":
+    prefix: "connector"
+    body: '''
+      
+      connector ${1}
+        ${2}
+        flow ${3};
+      end ${1};
+      
+    '''
+  "Modelica for loop":
+    prefix: "for"
+    body: '''
+      
+      for ${1:i} in ${2:enum} loop
+        ${3}
+      end for;
+      
+    '''
+  "Modelica function definition":
+    prefix: "function"
+    body: '''
+      
+      function ${1:FunctionName}
+        input ${2}
+        output ${3}
+      algorithm 
+        ${4}
+      end ${1:FunctionName};
+      
+    '''
+  "Modelica: if statement":
+    prefix: "if"
+    body: '''
+      
+      if ${1:condition} then
+        ${2}
+      end if;
+      
+    '''
+  "Modelica model definition":
+    prefix: "model"
+    body: '''
+      
+      model ${1:Model} "${2:Description}"
+        ${3}
+      equation
+        ${4}
+      end ${1:Model};
+      
+    '''
+  "Modelica package":
+    prefix: "package"
+    body: '''
+      
+      package ${1:Package} "${2:Description}"
+        ${3}
+      end ${1:Package};
+      
+    '''
+  "Modelica record":
+    prefix: "record"
+    body: '''
+      
+      record ${1:Record} "${2:Description}"
+        ${3}
+      end ${1:Record};
+      
+    '''
+  "Modelica when clause":
+    prefix: "when"
+    body: '''
+      
+      when ${1:expression} then
+        ${2}
+      end when;
+      
+    '''
