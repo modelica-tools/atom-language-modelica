@@ -2,11 +2,7 @@
 
 Adds syntax highlighting and snippets to Modelica files in [Atom](https://atom.io/ "Atom").
 
-The grammar was partially created using an automatic conversion 
-from the Modelica grammar written by 
-[@BorisChumichev](https://github.com/BorisChumichev)
-as described here 
-https://discuss.atom.io/t/convert-sublime-grammar-to-atom-grammar/14843.
+The grammar was partially created using an [automatic conversion](https://discuss.atom.io/t/convert-sublime-grammar-to-atom-grammar/14843) from the [Modelica grammar for Sublime Text by Boris Chumichev](https://github.com/BorisChumichev/modelicaSublimeTextPackage).
 
 ## Snippets
 
