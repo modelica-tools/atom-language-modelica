@@ -2,7 +2,11 @@
 
 Adds syntax highlighting and snippets to Modelica files in [Atom](https://atom.io/ "Atom").
 
-Originally inspired from the c/c++ plugin and from latex plugin.
+The grammar was partially created using an automatic conversion 
+from the Modelica grammar written by 
+[@BorisChumichev](https://github.com/BorisChumichev)
+as described here 
+https://discuss.atom.io/t/convert-sublime-grammar-to-atom-grammar/14843.
 
 ## Snippets
 
@@ -56,8 +60,3 @@ There are no default keymappings included. Here is one suggestion:
 first line of an annotation, the keypress passes through to the next key
 mapping assigned. So, when assigned to TAB as above, TAB will still normally
 work right for indentation and for completion of snippets and other uses.
-
-
-## TODO:
-
-* known bug: end keyword not well highlighted

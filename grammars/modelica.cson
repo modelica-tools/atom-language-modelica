@@ -1,339 +1,129 @@
 'fileTypes': [
-  'mo'
+  "mo"
 ]
-'foldingStartMarker': '/\\*\\*(?!\\*)|\\{\\s*($|/\\*(?!.*?\\*/.*\\S))'
-'foldingStopMarker': '(?<!\\*)\\*\\*/|^\\s*\\}'
-'name': 'Modelica'
-'scopeName': 'source.modelica'
-'patterns': [
-    {
-        'include': '#typedef'
-    }
-    {
-        'include': '#modelicawi'
-    }
-    {
-        'include': '#comments'
-    }
-    {
-        'include': '#modelicakw'
-    }
-    {
-        'include': '#annotations'
-    }
-    {
-        'begin': '"'
-        'beginCaptures':
-            '0':
-                'name': 'string.quoted.begin.modelica'
-        'end': '"'
-        'endCaptures':
-          '0':
-            'name': 'string.quoted.end.modelica'
-        'name': 'string.quoted.double.modelica'
-        'patterns': [
-          {
-            'include': '#string_escaped_char'
-          }
-          {
-            'include': '#string_placeholder'
-          }
-        ]
-    }
-
+name: "Modelica"
+patterns: [
+  {
+    begin: "/\\*"
+    end: "\\*/"
+    name: "comment.block"
+  }
+  {
+    match: "(//).*$\\n?"
+    name: "comment.line"
+  }
+  {
+    match: "\\b(true|false)\\b"
+    name: "constant.language"
+  }
+  {
+    match: "\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)\\b"
+    name: "constant.numeric"
+  }
+  {
+    match: "\\b(Real|Integer|Boolean|String|enumeration)\\b"
+    name: "storage.type"
+  }
+  {
+    match: "\\b(constant|final|parameter|expandable|replaceable|redeclare|constrainedby|import|flow|stream|input|output|discrete|connector)\\b"
+    name: "storage.modifier"
+  }
+  {
+    match: "\\b\\s*([A-Z])(?:([^ ;$]+)(;)?)([.]([A-Z])(?:([^ ;$]+)(;)?)?)++\\b"
+    name: "keyword"
+  }
+  {
+    match: "\\b(for|if|when|while|then|loop|end if|end when|end for|end while|else|elsewhen|and|break|each|elseif)\\b"
+    name: "keyword.control"
+  }
+  {
+    match: "\\b(and|or|not)\\b"
+    name: "keyword.operator.logical"
+  }
+  {
+    match: "<|<\\=|>|>\\=|\\=\\=|<>"
+    name: "keyword.operator.comparison"
+  }
+  {
+    match: "\\+|\\-|\\.\\+|\\.\\-|\\*|\\.\\*|/|\\./|\\^"
+    name: "keyword.operator.arithmetic"
+  }
+  {
+    match: "\\=|\\:\\="
+    name: "keyword.operator.assignment"
+  }
+  {
+    match: "\\b(algorithm|equation|initial equation|protected|public|register|end)\\b"
+    name: "keyword"
+  }
+  {
+    match: "\\b(acos|asin|atan|atan2|cos|cosh|exp|log|log10|sin|sinh|tan|tanh|abs|sign|sqrt|max|min|product|sum)\\b"
+    name: "support.function.mathematical"
+  }
+  {
+    match: "\\b(scalar|vector|matrix|identity|diagonal|zeros|ones|fill|linspace|transpose|outerProduct|symmetric|cross|skew)\\b"
+    name: "support.function.array"
+  }
+  {
+    match: "\\b(ceil|div|fill|floor|integer|max|min|mod|rem|pre|noEvent|change|edge|initial|terminal|reinit|sample|smooth|terminate)\\b"
+    name: "support.function.event"
+  }
+  {
+    match: "\\b(connect|der|inStream|actualStream|semiLinear|spatialDistribution|getInstanceName|homotopy|delay|assert|ndims|size|cardinality|isPresent)\\b"
+    name: "support.function.special"
+  }
+  {
+    match: "\\b(extends|partial|within)\\b"
+    name: "support.type"
+  }
+  {
+    captures:
+      "1":
+        name: "entity.name.type"
+      "2":
+        name: "keyword"
+      "3":
+        name: "comment.line"
+    match: "\\b((model|class|record|block|package)\\s+\\w+\\s*(\".*\")*)"
+  }
+  {
+    captures:
+      "1":
+        name: "entity.name.function"
+      "2":
+        name: "keyword"
+      "3":
+        name: "comment.line"
+    match: "((function)\\s+\\w+\\s*(\".*\")*)"
+  }
+  {
+    begin: "annotation"
+    end: '\\)\\s*;\\s*$'
+    name: "comment.block"
+    patterns: [
+      {
+        begin: "\""
+        end: "\""
+        name: "comment.block"
+      }
+    ]
+  }
+  {
+    captures:
+      "1":
+        name: "constant.string"
+    match: "[\"\\w\\)](\\s+\".*\"\\s*);"
+  }
+  {
+    begin: "\""
+    end: "\""
+    name: "constant.string"
+    patterns: [
+      {
+        match: "\\\\."
+        name: "constant.character.escaped"
+      }
+    ]
+  }
 ]
-'repository':
-    'modelicakw':
-        'patterns': [
-            {
-                'match': '\\b(initial|partial|encapsulated|impure|expandable|external|operator|pure|each|constrainedby)\\b'
-                'name': 'keyword.other.modelica'
-            }
-        ]
-    'modelicawi':
-        'patterns': [
-            {
-                'match': '\\b(within)\\b'
-                'name': 'keyword.other.modelica'
-            }
-        ]
-    'typedef':
-        'patterns': [
-            {
-                'begin': '\\b(package|class|model|function|record|block|connector|type)\\b [a-zA-Z0-9_]+\\b'
-                'beginCaptures':
-                    '0':
-                        'name': 'entity.name.type.modelica'
-                    '1':
-                        'name': 'storage.type.modelica'
-                'end': '\\b(end)\\b [a-zA-Z0-9_]+\\b'
-                'EndCaptures':
-                    '0':
-                        'name': 'entity.name.function.modelica'
-                    '1':
-                        'name': 'storage.type.modelica'
-                'patterns': [
-                    {
-                        'include': '$self'
-                    }
-                    {
-                        'include': '#featuredef'
-                    }
-                    {
-                        'include': '#modelicastmt'
-                    }
-                    {
-                        'include': '#modelicafuncall'
-                    }
-                    {
-                        'include': '#modelicakw'
-                    }
-                    {
-                        'include': '#annotations'
-                    }
-                ]
-            }
-        ]
-    'modelicatypes':
-        'patterns': [
-            {
-                'match': '\\b(Boolean|enumeration|String|Real|Integer)\\b'
-                'name': 'support.type.modelica'
-            }
-        ]
-    'featuredef':
-        'patterns': [
-            {
-                'match': '\\b(private|protected|public)\\b'
-                'name': 'storage.modifier.modelica'
-            }
-            {
-                'include': '#modelicatypes'
-            }
-            {
-                'include': '#modelicafeaturemodifier'
-            }
-            {
-                'include': '#modelicafeatureopt'
-            }
-            {
-                'include': '#modelicavar'
-            }
-            {
-                'include': '#operators'
-            }
-            {
-                'include': '#comments'
-            }
-            {
-                'include': '#values'
-            }
-            {
-                'include': '#modelicakw'
-            }
-            {
-                'include': '#annotations'
-            }
-        ]
-    'values':
-        'patterns': [
-            {
-                'match': '\\b(true|false)\\b'
-                'name': 'constant.language.modelica'
-            }
-            {
-                'match': '\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b'
-                'name': 'constant.numeric.modelica'
-            }
-        ]
-    'operators':
-        'patterns': [
-            {
-                'match': '\\b(\\+|\\-|in|\\/|and|or|not|\\<|\\>|\\<\\=|\\=\\=|\\>\\=)\\b'
-                'name': 'keyword.operator.modelica'
-            }
-        ]
-    'modelicafuncall':
-        'patterns': [
-            {
-                'match': '\\b(der|pre|pow|connect|change|edge|reinit|size|assert|abs|sign|sqrt|Integer|String|div|mod|rem|ceil|floor|integer|sin|cos|tan|asin|acos|atan|atan2|sinh|cosh|tanh|exp|log|log10|delay|cardinality|homotopy|semiLinear|inStream|actualStream|spatialDistribution|getInstanceName|terminal|initial|noEvent|smooth|sample)\\b'
-                'name': 'support.function.modelica'
-            }
-        ]
-    'modelicastmt':
-        'patterns': [
-            {
-                'match': '\\b(equation|algorithm)\\b'
-                'name': 'keyword.other.modelica'
-                'patterns': [
-                    {
-                        'include': '#control'
-                    }
-                    {
-                        'include': '#modelicafuncall'
-                    }
-                    {
-                        'include': '#comments'
-                    }
-                    {
-                        'include': '#values'
-                    }
-                    {
-                        'include': '#modelicakw'
-                    }
-                    {
-                        'include': '#annotations'
-                    }
-                ]
-            }
-        ]
-    'modelicafeatureopt':
-        'patterns': [
-            {
-                'match': '\\b(start|min|max|each)\\b'
-                'name': 'keyword.other.modelica'
-            }
-            {
-                'include': '#modelicakw'
-            }
-            {
-                'include': '#operators'
-            }
-            {
-                'include': '#control'
-            }
-        ]
-    'modelicavar':
-        'patterns': [
-            {
-                'match': '\\bg[a-zA-Z0-9]\\w*\\b'
-                'name': 'variable.other.readwrite.modelica'
-            }
-        ]
-    'control':
-        'patterns': [
-            {
-                'match': '\\b(loop|do|else|if|then|end|return|break|elseif|elsewhen)\\b'
-                'name': 'keyword.control.modelica'
-            }
-            {
-                'begin': '\\b(when|for|while|if)\\b'
-                'beginCaptures':
-                    '0':
-                        'name': 'keyword.control.modelica'
-                'end': '\\b(end)\\b(when|for|while)\\b'
-                'EndCaptures':
-                    '0':
-                        'name': 'keyword.control.modelica'
-                    '1':
-                        'name': 'keyword.control.modelica'
-                'patterns': [
-                    {
-                        'include': '#control'
-                    }
-                    {
-                        'include': '#modelicafuncall'
-                    }
-                    {
-                        'include': '#comments'
-                    }
-                    {
-                        'include': '#values'
-                    }
-                    {
-                        'include': '#operators'
-                    }
-                    {
-                        'include': '#modelicakw'
-                    }
-                ]
-            }
-        ]
-    'modelicafeaturemodifier':
-        'patterns': [
-            {
-                'match': '\\b(flow|stream|final|within|parameter|replaceable|redeclare|partial|discrete|extends|import|input|output|constant|inner|outer)\\b'
-                'name': 'storage.modifier.modelica'
-            }
-        ]
-
-    'annotations':
-        'patterns': [
-            {
-                'begin': '\\b(annotation)\\b'
-                'beginCaptures':
-                    '0':
-                        'name': 'keyword.other.modelica'
-                'end': '\\)\\s*;\\s*$'
-                'name': 'comment.block.annotation.modelica'
-                # 'patterns': [
-                #     {
-                #       'begin': '(?i)<html>'
-                #       'beginCaptures':
-                #         '0':
-                #           'name': 'support.modelica'
-                #       'end': '(?i)</html>'
-                #       'endCaptures':
-                #         '0':
-                #           'name': 'support.modelica'
-                #       'name': 'markup.code.html.modelica'
-                #       'contentName': 'source.html.basic'
-                #       'patterns': [
-                #         {
-                #           'include': 'text.html.basic'
-                #         }
-                #       ]
-                #     }
-                # ]
-            }
-        ]
-    'comments':
-        'patterns': [
-            {
-                'begin': '/\\*'
-                'beginCaptures':
-                  '0':
-                    'name': 'comment.block.begin.modelica'
-                'end': '\\*/'
-                'endCaptures':
-                    '0':
-                        'name': 'comment.block.end.modelica'
-                'name': 'comment.block.modelica'
-            }
-            {
-                'begin': '//'
-                'beginCaptures':
-                    '0':
-                        'name': 'comment.line.modelica'
-                'end': '\\n'
-                'name': 'comment.line.double-slash.modelica'
-                'patterns': [
-                    {
-                        'match': '(?>\\\\\\s*\\n)'
-                        'name': 'punctuation.separator.continuation.modelica'
-                    }
-                ]
-            }
-        ]
-    'string_escaped_char':
-        'patterns': [
-            {
-                'match': '\\\\(\\\\|[abefnprtv\'"?]|[0-3]\\d{,2}|[4-7]\\d?|x[a-fA-F0-9]{,2}|u[a-fA-F0-9]{,4}|U[a-fA-F0-9]{,8})'
-                'name': 'constant.character.escape.modelica'
-            }
-            {
-                'match': '\\\\.'
-                'name': 'invalid.illegal.unknown-escape.modelica'
-            }
-        ]
-    'string_placeholder':
-        'patterns': [
-            {
-                'match': '(?x)%\n \t\t\t\t\t\t(\\d+\\$)? # field (argument #)\n \t\t\t\t\t\t[#0\\- +\']* # flags\n \t\t\t\t\t\t[,;:_]? # separator character (AltiVec)\n \t\t\t\t\t\t((-?\\d+)|\\*(-?\\d+\\$)?)? # minimum field width\n \t\t\t\t\t\t(\\.((-?\\d+)|\\*(-?\\d+\\$)?)?)? # precision\n \t\t\t\t\t\t(hh|h|ll|l|j|t|z|q|L|vh|vl|v|hv|hl)? # length modifier\n \t\t\t\t\t\t[diouxXDOUeEfFgGaACcSspn%] # conversion type\n \t\t\t\t\t'
-                'name': 'constant.other.placeholder.modelica'
-            }
-            {
-                'match': '%'
-                'name': 'invalid.illegal.placeholder.modelica'
-            }
-        ]
+scopeName: "source.modelica"

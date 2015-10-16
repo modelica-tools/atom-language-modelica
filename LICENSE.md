@@ -1,7 +1,7 @@
 The MIT License (MIT)
 
-Copyright (c) 2014-2015 Raphael Chenouard, Lennart Ochel, Tom Short, and
-Matthis Thorade.
+Copyright (c) 2014-2015 Raphael Chenouard, Boris Chumichev, Lennart Ochel, 
+Tom Short, and Matthis Thorade.
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
