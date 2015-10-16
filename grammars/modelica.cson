@@ -21,7 +21,7 @@ patterns: [
     name: "constant.numeric"
   }
   {
-    match: "\\b(Real|Integer|Boolean|String)\\b"
+    match: "\\b(Real|Integer|Boolean|String|enumeration)\\b"
     name: "storage.type"
   }
   {
