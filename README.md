@@ -10,17 +10,17 @@ Current code shortcuts (type given keyword + tab):
 
 keyword  | description
 ---      | ---
-/*       | for block comments
-model    | for model block
-function | for function block
-record   | for record block
-package  | for package block
+/*	     | for block comments
 block    | for block
-class    | for class block
-for      | for a for loop block
-while    | for a while loop block
-when     | for a when event block
-if       | for a conditional block
+class	   | for class block
+for	     | for a for loop block
+function | for function block
+if	     | for a conditional block
+model	   | for model block
+package	 | for package block
+record	 | for record block
+when	   | for a when event block
+while	   | for a while loop block
 
 ## Toggling annotations
 
