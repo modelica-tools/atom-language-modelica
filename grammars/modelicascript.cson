@@ -1,117 +1,117 @@
 'fileTypes': [
-  'mos'
+  "mos"
 ]
-'foldingStartMarker': '/\\*\\*(?!\\*)|\\{\\s*($|/\\*(?!.*?\\*/.*\\S))'
-'foldingStopMarker': '(?<!\\*)\\*\\*/|^\\s*\\}'
-'name': 'ModelicaScript'
-'scopeName': 'source.modelicascript'
-'patterns': [
-    {
-        'include': '#statements'
-    }
-    {
-        'include': '#comments'
-    }
-    {
-        'include': '#keywords'
-    }
-    {
-        'include': '#values'
-    }
-    {
-        'begin': '"'
-        'beginCaptures':
-            '0':
-                'name': 'string.quoted.begin.modelica'
-        'end': '"'
-        'endCaptures':
-          '0':
-            'name': 'string.quoted.end.modelica'
-        'name': 'string.quoted.double.modelica'
-        'patterns': [
-          {
-            'include': '#string_escaped_char'
-          }
-          {
-            'include': '#string_placeholder'
-          }
-        ]
-    }
-    
+name: "ModelicaScript"
+foldingStartMarker: "/\\*\\*(?!\\*)|\\{\\s*($|/\\*(?!.*?\\*/.*\\S))"
+foldingStopMarker: "(?<!\\*)\\*\\*/|^\\s*\\}"
+patterns: [
+  {
+    include: "#statements"
+  }
+  {
+    include: "#comments"
+  }
+  {
+    include: "#keywords"
+  }
+  {
+    include: "#values"
+  }
+  {
+    begin: "\""
+    beginCaptures:
+      "0":
+        name: "string.quoted.begin.modelica"
+    end: "\""
+    endCaptures:
+      "0":
+        name: "string.quoted.end.modelica"
+    name: "string.quoted.double.modelica"
+    patterns: [
+      {
+        include: "#string_escaped_char"
+      }
+      {
+        include: "#string_placeholder"
+      }
+    ]
+  }
 ]
-'repository':
-    'keywords':
-        'patterns': [
-            {
-                'match': '\\b(Modelica|startTime|stopTime|outputFormat|numberOfIntervals)\\b'
-                'name': 'keyword.other.modelica'
-            }
+
+repository:
+  keywords:
+    patterns: [
+      {
+        match: "\\b(Modelica|startTime|stopTime|outputFormat|numberOfIntervals)\\b"
+        name: "keyword.other.modelica"
+      }
+    ]
+  statements:
+    patterns: [
+      {
+        match: "\\b(loadModel|loadFile|checkModel|instantiateModel|simulate|plot)\\b"
+        name: "keyword.other.modelica"
+      }
+    ]
+  values:
+    patterns: [
+      {
+        match: "\\b(true|false)\\b"
+        name: "constant.language.modelica"
+      }
+      {
+        "match": "\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b"
+        "name": "constant.numeric.modelica"
+      }
+    ]
+  comments:
+    patterns: [
+      {
+        begin: "/\\*"
+        beginCaptures:
+          "0":
+            name: "comment.block.begin.modelica"
+        end: "\\*/"
+        endCaptures:
+          "0":
+            name: "comment.block.end.modelica"
+        name: "comment.block.modelica"
+      }
+      {
+        begin: "//"
+        beginCaptures:
+          "0":
+            name: "comment.line.modelica"
+        end: "\\n"
+        name: "comment.line.double-slash.modelica"
+        patterns: [
+          {
+            match: "(?>\\\\\\s*\\n)"
+            name: "punctuation.separator.continuation.modelica"
+          }
         ]
-    'statements':
-        'patterns': [
-            {
-                'match': '\\b(loadModel|loadFile|checkModel|instantiateModel|simulate|plot)\\b'
-                'name': 'keyword.other.modelica'
-            }
-        ]
-    'values':
-        'patterns': [
-            {
-                'match': '\\b(true|false)\\b'
-                'name': 'constant.language.modelica'
-            }
-            {
-                'match': '\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b'
-                'name': 'constant.numeric.modelica'
-            }
-        ]
-    'comments':
-        'patterns': [
-            {
-                'begin': '/\\*'
-                'beginCaptures':
-                  '0':
-                    'name': 'comment.block.begin.modelica'
-                'end': '\\*/'
-                'endCaptures':
-                    '0':
-                        'name': 'comment.block.end.modelica'
-                'name': 'comment.block.modelica'
-            }
-            {
-                'begin': '//'
-                'beginCaptures':
-                    '0':
-                        'name': 'comment.line.modelica'
-                'end': '\\n'
-                'name': 'comment.line.double-slash.modelica'
-                'patterns': [
-                    {
-                        'match': '(?>\\\\\\s*\\n)'
-                        'name': 'punctuation.separator.continuation.modelica'
-                    }
-                ]
-            }
-        ]
-    'string_escaped_char':
-        'patterns': [
-            {
-                'match': '\\\\(\\\\|[abefnprtv\'"?]|[0-3]\\d{,2}|[4-7]\\d?|x[a-fA-F0-9]{,2}|u[a-fA-F0-9]{,4}|U[a-fA-F0-9]{,8})'
-                'name': 'constant.character.escape.modelica'
-            }
-            {
-                'match': '\\\\.'
-                'name': 'invalid.illegal.unknown-escape.modelica'
-            }
-        ]
-    'string_placeholder':
-        'patterns': [
-            {
-                'match': '(?x)%\n \t\t\t\t\t\t(\\d+\\$)? # field (argument #)\n \t\t\t\t\t\t[#0\\- +\']* # flags\n \t\t\t\t\t\t[,;:_]? # separator character (AltiVec)\n \t\t\t\t\t\t((-?\\d+)|\\*(-?\\d+\\$)?)? # minimum field width\n \t\t\t\t\t\t(\\.((-?\\d+)|\\*(-?\\d+\\$)?)?)? # precision\n \t\t\t\t\t\t(hh|h|ll|l|j|t|z|q|L|vh|vl|v|hv|hl)? # length modifier\n \t\t\t\t\t\t[diouxXDOUeEfFgGaACcSspn%] # conversion type\n \t\t\t\t\t'
-                'name': 'constant.other.placeholder.modelica'
-            }
-            {
-                'match': '%'
-                'name': 'invalid.illegal.placeholder.modelica'
-            }
-        ]
+      }
+    ]
+  string_escaped_char:
+      patterns: [
+        {
+          match: "\\\\(\\\\|[abefnprtv'\"?]|[0-3]\\d{,2}|[4-7]\\d?|x[a-fA-F0-9]{,2}|u[a-fA-F0-9]{,4}|U[a-fA-F0-9]{,8})"
+          name: "constant.character.escape.modelica"
+        }
+        {
+          match: "\\\\."
+          name: "invalid.illegal.unknown-escape.modelica"
+        }
+      ]
+  string_placeholder:
+    patterns: [
+      {
+        match: "(?x)%\n \t\t\t\t\t\t(\\d+\\$)? # field (argument #)\n \t\t\t\t\t\t[#0\\- +']* # flags\n \t\t\t\t\t\t[,;:_]? # separator character (AltiVec)\n \t\t\t\t\t\t((-?\\d+)|\\*(-?\\d+\\$)?)? # minimum field width\n \t\t\t\t\t\t(\\.((-?\\d+)|\\*(-?\\d+\\$)?)?)? # precision\n \t\t\t\t\t\t(hh|h|ll|l|j|t|z|q|L|vh|vl|v|hv|hl)? # length modifier\n \t\t\t\t\t\t[diouxXDOUeEfFgGaACcSspn%] # conversion type\n \t\t\t\t\t"
+        name: "constant.other.placeholder.modelica"
+      }
+      {
+        match: "%"
+        name: "invalid.illegal.placeholder.modelica"
+      }
+    ]
+scopeName: "source.modelicascript"
