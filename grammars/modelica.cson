@@ -21,7 +21,7 @@ patterns: [
     name: "constant.numeric"
   }
   {
-    match: "\\b(Real|Integer|Boolean|String|enumeration)\\b"
+    match: "\\b(Real|Integer|Boolean|String|enumeration|type)\\b"
     name: "storage.type"
   }
   {
@@ -33,7 +33,7 @@ patterns: [
     name: "keyword"
   }
   {
-    match: "\\b(for|if|when|while|then|loop|end if|end when|end for|end while|else|elsewhen|and|break|each|elseif)\\b"
+    match: "\\b(for|if|when|while|then|loop|end if|end when|end for|end while|else|elsewhen|and|break|return|each|elseif)\\b"
     name: "keyword.control"
   }
   {
@@ -53,7 +53,7 @@ patterns: [
     name: "keyword.operator.assignment"
   }
   {
-    match: "\\b(algorithm|equation|initial equation|protected|public|register|end)\\b"
+    match: "\\b(algorithm|equation|initial algorithm|initial equation|protected|public|end|pure|impure|external|encapsulated|in|inner|operator|outer)\\b"
     name: "keyword"
   }
   {
