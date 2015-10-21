@@ -1,4 +1,4 @@
 ".source.modelica":
   editor:
     increaseIndentPattern: "^[\t ]*(algorithm|block|class|else|equation|for|function|if|initial algorithm|initial equation|model|package|protected|public|record|when|while)"
-    decreaseIndentPattern: "^[\t ]*(algorithm|else|end|equation|initial algorithm|initial equation)"
+    decreaseIndentPattern: "^[\t ]*(algorithm|else|end|equation|initial algorithm|initial equation|protected|public)"
