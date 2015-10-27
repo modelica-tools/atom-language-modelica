@@ -100,7 +100,7 @@ class ModelicaDocView extends ScrollView
         name = blockmatch[2]
         endregex = new RegExp "\bend\b\s*\b" + name + "\b"
         endregex = new RegExp "end " + name + ";"
-        anns1 += "<hr class='level" + level + "'/><h" + level + ">" + blockmatch[0] + "</h" + level + ">"
+        anns1 += "<h" + level + ">" + blockmatch[0] + "</h" + level + ">"
         for erow in [stoprow..(row + 1)]
           if @editor.lineTextForBufferRow(erow).match(endregex)
             anns1 += @extractHTML(row + 1, erow - 1, level + 1)
