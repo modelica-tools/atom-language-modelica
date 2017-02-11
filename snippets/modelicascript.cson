@@ -1,0 +1,778 @@
+".source.modelicascript":
+  "comments":
+    prefix: "/*"
+    body: "/* $1 */"
+  "GC_expand_hp":
+    prefix: "GC_expand_hp"
+    body: "GC_expand_hp(${1:size});${2: getErrorString();}$3"
+  "GC_gcollect_and_unmap":
+    prefix: "GC_gcollect_and_unmap"
+    body: "GC_gcollect_and_unmap(${1:});${2: getErrorString();}$3"
+  "addClassAnnotation":
+    prefix: "addClassAnnotation"
+    body: "addClassAnnotation(${1:class_, annotate});${2: getErrorString();}$3"
+  "addTransition":
+    prefix: "addTransition"
+    body: "addTransition(${1:cl, from, to, condition, immediate, reset, synchronize, priority, annotate});${2: getErrorString();}$3"
+  "alarm":
+    prefix: "alarm"
+    body: "alarm(${1:seconds});${2: getErrorString();}$3"
+  "appendEnvironmentVar":
+    prefix: "appendEnvironmentVar"
+    body: "appendEnvironmentVar(${1:var, value});${2: getErrorString();}$3"
+  "basename":
+    prefix: "basename"
+    body: "basename(${1:path});${2: getErrorString();}$3"
+  "buildModel":
+    prefix: "buildModel"
+    body: "buildModel(${1:className, startTime, stopTime, numberOfIntervals, tolerance, method, fileNamePrefix, options, outputFormat, variableFilter, cflags, simflags});${2: getErrorString();}$3"
+  "buildModelFMU":
+    prefix: "buildModelFMU"
+    body: "buildModelFMU(${1:className, version, fmuType, fileNamePrefix, platforms[:]});${2: getErrorString();}$3"
+  "buildOpenTURNSInterface":
+    prefix: "buildOpenTURNSInterface"
+    body: "buildOpenTURNSInterface(${1:className, pythonTemplateFile, showFlatModelica});${2: getErrorString();}$3"
+  "cd":
+    prefix: "cd"
+    body: "cd(${1:newWorkingDirectory});${2: getErrorString();}$3"
+  "checkAllModelsRecursive":
+    prefix: "checkAllModelsRecursive"
+    body: "checkAllModelsRecursive(${1:className, checkProtected});${2: getErrorString();}$3"
+  "checkCodeGraph":
+    prefix: "checkCodeGraph"
+    body: "checkCodeGraph(${1:graphfile, codefile});${2: getErrorString();}$3"
+  "checkInterfaceOfPackages":
+    prefix: "checkInterfaceOfPackages"
+    body: "checkInterfaceOfPackages(${1:cl, dependencyMatrix[:,});${2: getErrorString();}$3"
+  "checkModel":
+    prefix: "checkModel"
+    body: "checkModel(${1:className});${2: getErrorString();}$3"
+  "checkSettings":
+    prefix: "checkSettings"
+    body: "checkSettings(${1:});${2: getErrorString();}$3"
+  "checkTaskGraph":
+    prefix: "checkTaskGraph"
+    body: "checkTaskGraph(${1:filename, reffilename});${2: getErrorString();}$3"
+  "classAnnotationExists":
+    prefix: "classAnnotationExists"
+    body: "classAnnotationExists(${1:className, annotationName});${2: getErrorString();}$3"
+  "clear":
+    prefix: "clear"
+    body: "clear(${1:});${2: getErrorString();}$3"
+  "clearCommandLineOptions":
+    prefix: "clearCommandLineOptions"
+    body: "clearCommandLineOptions(${1:});${2: getErrorString();}$3"
+  "clearDebugFlags":
+    prefix: "clearDebugFlags"
+    body: "clearDebugFlags(${1:});${2: getErrorString();}$3"
+  "clearMessages":
+    prefix: "clearMessages"
+    body: "clearMessages(${1:});${2: getErrorString();}$3"
+  "clearProgram":
+    prefix: "clearProgram"
+    body: "clearProgram(${1:});${2: getErrorString();}$3"
+  "clearVariables":
+    prefix: "clearVariables"
+    body: "clearVariables(${1:});${2: getErrorString();}$3"
+  "closeSimulationResultFile":
+    prefix: "closeSimulationResultFile"
+    body: "closeSimulationResultFile(${1:});${2: getErrorString();}$3"
+  "codeToString":
+    prefix: "codeToString"
+    body: "codeToString(${1:className});${2: getErrorString();}$3"
+  "compareFiles":
+    prefix: "compareFiles"
+    body: "compareFiles(${1:file1, file2});${2: getErrorString();}$3"
+  "compareFilesAndMove":
+    prefix: "compareFilesAndMove"
+    body: "compareFilesAndMove(${1:newFile, oldFile});${2: getErrorString();}$3"
+  "compareSimulationResults":
+    prefix: "compareSimulationResults"
+    body: "compareSimulationResults(${1:filename, reffilename, logfilename, relTol, absTol, vars});${2: getErrorString();}$3"
+  "convertUnits":
+    prefix: "convertUnits"
+    body: "convertUnits(${1:s1, s2});${2: getErrorString();}$3"
+  "copyClass":
+    prefix: "copyClass"
+    body: "copyClass(${1:className, newClassName, withIn});${2: getErrorString();}$3"
+  "countMessages":
+    prefix: "countMessages"
+    body: "countMessages(${1:});${2: getErrorString();}$3"
+  "deleteFile":
+    prefix: "deleteFile"
+    body: "deleteFile(${1:fileName});${2: getErrorString();}$3"
+  "deleteTransition":
+    prefix: "deleteTransition"
+    body: "deleteTransition(${1:cl, from, to, condition, immediate, reset, synchronize, priority});${2: getErrorString();}$3"
+  "diffModelicaFileListings":
+    prefix: "diffModelicaFileListings"
+    body: "diffModelicaFileListings(${1:before,, diffFormat});${2: getErrorString();}$3"
+  "diffSimulationResults":
+    prefix: "diffSimulationResults"
+    body: "diffSimulationResults(${1:actualFile, expectedFile, diffPrefix, relTol, relTolDiffMinMax, rangeDelta, vars, keepEqualResults});${2: getErrorString();}$3"
+  "diffSimulationResultsHtml":
+    prefix: "diffSimulationResultsHtml"
+    body: "diffSimulationResultsHtml(${1:var, actualFile, expectedFile, relTol, relTolDiffMinMax, rangeDelta});${2: getErrorString();}$3"
+  "directoryExists":
+    prefix: "directoryExists"
+    body: "directoryExists(${1:dirName});${2: getErrorString();}$3"
+  "dirname":
+    prefix: "dirname"
+    body: "dirname(${1:path});${2: getErrorString();}$3"
+  "dumpXMLDAE":
+    prefix: "dumpXMLDAE"
+    body: "dumpXMLDAE(${1:className, translationLevel, addOriginalIncidenceMatrix, addSolvingInfo, addMathMLCode, dumpResiduals, fileNamePrefix, rewriteRulesFile});${2: getErrorString();}$3"
+  "echo":
+    prefix: "echo"
+    body: "echo(${1:setEcho});${2: getErrorString();}$3"
+  "escapeXML":
+    prefix: "escapeXML"
+    body: "escapeXML(${1:inStr});${2: getErrorString();}$3"
+  "exit":
+    prefix: "exit"
+    body: "exit(${1:status});${2: getErrorString();}$3"
+  "exportToFigaro":
+    prefix: "exportToFigaro"
+    body: "exportToFigaro(${1:path, directory, database, mode, options, processor});${2: getErrorString();}$3"
+  "extendsFrom":
+    prefix: "extendsFrom"
+    body: "extendsFrom(${1:className, baseClassName});${2: getErrorString();}$3"
+  "filterSimulationResults":
+    prefix: "filterSimulationResults"
+    body: "filterSimulationResults(${1:inFile, outFile, vars, numberOfIntervals});${2: getErrorString();}$3"
+  "generateCode":
+    prefix: "generateCode"
+    body: "generateCode(${1:className});${2: getErrorString();}$3"
+  "generateEntryPoint":
+    prefix: "generateEntryPoint"
+    body: "generateEntryPoint(${1:fileName, entryPoint, url});${2: getErrorString();}$3"
+  "generateHeader":
+    prefix: "generateHeader"
+    body: "generateHeader(${1:fileName});${2: getErrorString();}$3"
+  "generateScriptingAPI":
+    prefix: "generateScriptingAPI"
+    body: "generateScriptingAPI(${1:cl, name});${2: getErrorString();}$3"
+  "generateSeparateCode":
+    prefix: "generateSeparateCode"
+    body: "generateSeparateCode(${1:className, cleanCache});${2: getErrorString();}$3"
+  "generateSeparateCodeDependencies":
+    prefix: "generateSeparateCodeDependencies"
+    body: "generateSeparateCodeDependencies(${1:stampSuffix});${2: getErrorString();}$3"
+  "generateSeparateCodeDependenciesMakefile":
+    prefix: "generateSeparateCodeDependenciesMakefile"
+    body: "generateSeparateCodeDependenciesMakefile(${1:filename, directory, suffix});${2: getErrorString();}$3"
+  "generateVerificationScenarios":
+    prefix: "generateVerificationScenarios"
+    body: "generateVerificationScenarios(${1:path});${2: getErrorString();}$3"
+  "getAlgorithmCount":
+    prefix: "getAlgorithmCount"
+    body: "getAlgorithmCount(${1:class_});${2: getErrorString();}$3"
+  "getAlgorithmItemsCount":
+    prefix: "getAlgorithmItemsCount"
+    body: "getAlgorithmItemsCount(${1:class_});${2: getErrorString();}$3"
+  "getAnnotationCount":
+    prefix: "getAnnotationCount"
+    body: "getAnnotationCount(${1:class_});${2: getErrorString();}$3"
+  "getAnnotationModifierValue":
+    prefix: "getAnnotationModifierValue"
+    body: "getAnnotationModifierValue(${1:name, vendorannotation, modifiername});${2: getErrorString();}$3"
+  "getAnnotationNamedModifiers":
+    prefix: "getAnnotationNamedModifiers"
+    body: "getAnnotationNamedModifiers(${1:name, vendorannotation});${2: getErrorString();}$3"
+  "getAnnotationVersion":
+    prefix: "getAnnotationVersion"
+    body: "getAnnotationVersion(${1:});${2: getErrorString();}$3"
+  "getAstAsCorbaString":
+    prefix: "getAstAsCorbaString"
+    body: "getAstAsCorbaString(${1:fileName});${2: getErrorString();}$3"
+  "getAvailableIndexReductionMethods":
+    prefix: "getAvailableIndexReductionMethods"
+    body: "getAvailableIndexReductionMethods(${1:});${2: getErrorString();}$3"
+  "getAvailableLibraries":
+    prefix: "getAvailableLibraries"
+    body: "getAvailableLibraries(${1:});${2: getErrorString();}$3"
+  "getAvailableMatchingAlgorithms":
+    prefix: "getAvailableMatchingAlgorithms"
+    body: "getAvailableMatchingAlgorithms(${1:});${2: getErrorString();}$3"
+  "getAvailableTearingMethods":
+    prefix: "getAvailableTearingMethods"
+    body: "getAvailableTearingMethods(${1:});${2: getErrorString();}$3"
+  "getBooleanClassAnnotation":
+    prefix: "getBooleanClassAnnotation"
+    body: "getBooleanClassAnnotation(${1:className, annotationName});${2: getErrorString();}$3"
+  "getBuiltinType":
+    prefix: "getBuiltinType"
+    body: "getBuiltinType(${1:cl});${2: getErrorString();}$3"
+  "getCFlags":
+    prefix: "getCFlags"
+    body: "getCFlags(${1:});${2: getErrorString();}$3"
+  "getCXXCompiler":
+    prefix: "getCXXCompiler"
+    body: "getCXXCompiler(${1:});${2: getErrorString();}$3"
+  "getClassComment":
+    prefix: "getClassComment"
+    body: "getClassComment(${1:cl});${2: getErrorString();}$3"
+  "getClassInformation":
+    prefix: "getClassInformation"
+    body: "getClassInformation(${1:cl});${2: getErrorString();}$3"
+  "getClassNames":
+    prefix: "getClassNames"
+    body: "getClassNames(${1:class_, recursive, qualified, sort, builtin, showProtected, includeConstants});${2: getErrorString();}$3"
+  "getClassRestriction":
+    prefix: "getClassRestriction"
+    body: "getClassRestriction(${1:cl});${2: getErrorString();}$3"
+  "getClassesInModelicaPath":
+    prefix: "getClassesInModelicaPath"
+    body: "getClassesInModelicaPath(${1:});${2: getErrorString();}$3"
+  "getCommandLineOptions":
+    prefix: "getCommandLineOptions"
+    body: "getCommandLineOptions(${1:});${2: getErrorString();}$3"
+  "getCompileCommand":
+    prefix: "getCompileCommand"
+    body: "getCompileCommand(${1:});${2: getErrorString();}$3"
+  "getCompiler":
+    prefix: "getCompiler"
+    body: "getCompiler(${1:});${2: getErrorString();}$3"
+  "getComponentModifierNames":
+    prefix: "getComponentModifierNames"
+    body: "getComponentModifierNames(${1:class_, componentName});${2: getErrorString();}$3"
+  "getComponentModifierValue":
+    prefix: "getComponentModifierValue"
+    body: "getComponentModifierValue(${1:class_, modifier});${2: getErrorString();}$3"
+  "getComponentModifierValues":
+    prefix: "getComponentModifierValues"
+    body: "getComponentModifierValues(${1:class_, modifier});${2: getErrorString();}$3"
+  "getComponentsTest":
+    prefix: "getComponentsTest"
+    body: "getComponentsTest(${1:name});${2: getErrorString();}$3"
+  "getConfigFlagValidOptions":
+    prefix: "getConfigFlagValidOptions"
+    body: "getConfigFlagValidOptions(${1:flag});${2: getErrorString();}$3"
+  "getDefaultOpenCLDevice":
+    prefix: "getDefaultOpenCLDevice"
+    body: "getDefaultOpenCLDevice(${1:});${2: getErrorString();}$3"
+  "getDerivedClassModifierNames":
+    prefix: "getDerivedClassModifierNames"
+    body: "getDerivedClassModifierNames(${1:className});${2: getErrorString();}$3"
+  "getDerivedClassModifierValue":
+    prefix: "getDerivedClassModifierValue"
+    body: "getDerivedClassModifierValue(${1:className, modifierName});${2: getErrorString();}$3"
+  "getDerivedUnits":
+    prefix: "getDerivedUnits"
+    body: "getDerivedUnits(${1:baseUnit});${2: getErrorString();}$3"
+  "getDocumentationAnnotation":
+    prefix: "getDocumentationAnnotation"
+    body: "getDocumentationAnnotation(${1:cl});${2: getErrorString();}$3"
+  "getEnvironmentVar":
+    prefix: "getEnvironmentVar"
+    body: "getEnvironmentVar(${1:var});${2: getErrorString();}$3"
+  "getEquationCount":
+    prefix: "getEquationCount"
+    body: "getEquationCount(${1:class_});${2: getErrorString();}$3"
+  "getEquationItemsCount":
+    prefix: "getEquationItemsCount"
+    body: "getEquationItemsCount(${1:class_});${2: getErrorString();}$3"
+  "getErrorString":
+    prefix: "getErrorString"
+    body: "getErrorString(${1:warningsAsErrors});$2"
+  "getImportCount":
+    prefix: "getImportCount"
+    body: "getImportCount(${1:class_});${2: getErrorString();}$3"
+  "getIndexReductionMethod":
+    prefix: "getIndexReductionMethod"
+    body: "getIndexReductionMethod(${1:});${2: getErrorString();}$3"
+  "getInheritedClasses":
+    prefix: "getInheritedClasses"
+    body: "getInheritedClasses(${1:name});${2: getErrorString();}$3"
+  "getInitialAlgorithmCount":
+    prefix: "getInitialAlgorithmCount"
+    body: "getInitialAlgorithmCount(${1:class_});${2: getErrorString();}$3"
+  "getInitialAlgorithmItemsCount":
+    prefix: "getInitialAlgorithmItemsCount"
+    body: "getInitialAlgorithmItemsCount(${1:class_});${2: getErrorString();}$3"
+  "getInitialEquationCount":
+    prefix: "getInitialEquationCount"
+    body: "getInitialEquationCount(${1:class_});${2: getErrorString();}$3"
+  "getInitialEquationItemsCount":
+    prefix: "getInitialEquationItemsCount"
+    body: "getInitialEquationItemsCount(${1:class_});${2: getErrorString();}$3"
+  "getInstallationDirectoryPath":
+    prefix: "getInstallationDirectoryPath"
+    body: "getInstallationDirectoryPath(${1:});${2: getErrorString();}$3"
+  "getLanguageStandard":
+    prefix: "getLanguageStandard"
+    body: "getLanguageStandard(${1:});${2: getErrorString();}$3"
+  "getLinker":
+    prefix: "getLinker"
+    body: "getLinker(${1:});${2: getErrorString();}$3"
+  "getLinkerFlags":
+    prefix: "getLinkerFlags"
+    body: "getLinkerFlags(${1:});${2: getErrorString();}$3"
+  "getLoadedLibraries":
+    prefix: "getLoadedLibraries"
+    body: "getLoadedLibraries(${1:});${2: getErrorString();}$3"
+  "getMatchingAlgorithm":
+    prefix: "getMatchingAlgorithm"
+    body: "getMatchingAlgorithm(${1:});${2: getErrorString();}$3"
+  "getMemorySize":
+    prefix: "getMemorySize"
+    body: "getMemorySize(${1:});${2: getErrorString();}$3"
+  "getMessagesString":
+    prefix: "getMessagesString"
+    body: "getMessagesString(${1:});${2: getErrorString();}$3"
+  "getModelicaPath":
+    prefix: "getModelicaPath"
+    body: "getModelicaPath(${1:});${2: getErrorString();}$3"
+  "getNoSimplify":
+    prefix: "getNoSimplify"
+    body: "getNoSimplify(${1:});${2: getErrorString();}$3"
+  "getNthAlgorithm":
+    prefix: "getNthAlgorithm"
+    body: "getNthAlgorithm(${1:class_, index});${2: getErrorString();}$3"
+  "getNthAlgorithmItem":
+    prefix: "getNthAlgorithmItem"
+    body: "getNthAlgorithmItem(${1:class_, index});${2: getErrorString();}$3"
+  "getNthAnnotationString":
+    prefix: "getNthAnnotationString"
+    body: "getNthAnnotationString(${1:class_, index});${2: getErrorString();}$3"
+  "getNthEquation":
+    prefix: "getNthEquation"
+    body: "getNthEquation(${1:class_, index});${2: getErrorString();}$3"
+  "getNthEquationItem":
+    prefix: "getNthEquationItem"
+    body: "getNthEquationItem(${1:class_, index});${2: getErrorString();}$3"
+  "getNthImport":
+    prefix: "getNthImport"
+    body: "getNthImport(${1:class_, index});${2: getErrorString();}$3"
+  "getNthInitialAlgorithm":
+    prefix: "getNthInitialAlgorithm"
+    body: "getNthInitialAlgorithm(${1:class_, index});${2: getErrorString();}$3"
+  "getNthInitialAlgorithmItem":
+    prefix: "getNthInitialAlgorithmItem"
+    body: "getNthInitialAlgorithmItem(${1:class_, index});${2: getErrorString();}$3"
+  "getNthInitialEquation":
+    prefix: "getNthInitialEquation"
+    body: "getNthInitialEquation(${1:class_, index});${2: getErrorString();}$3"
+  "getNthInitialEquationItem":
+    prefix: "getNthInitialEquationItem"
+    body: "getNthInitialEquationItem(${1:class_, index});${2: getErrorString();}$3"
+  "getOrderConnections":
+    prefix: "getOrderConnections"
+    body: "getOrderConnections(${1:});${2: getErrorString();}$3"
+  "getPackages":
+    prefix: "getPackages"
+    body: "getPackages(${1:class_});${2: getErrorString();}$3"
+  "getParameterNames":
+    prefix: "getParameterNames"
+    body: "getParameterNames(${1:class_});${2: getErrorString();}$3"
+  "getParameterValue":
+    prefix: "getParameterValue"
+    body: "getParameterValue(${1:class_, parameterName});${2: getErrorString();}$3"
+  "getSettings":
+    prefix: "getSettings"
+    body: "getSettings(${1:});${2: getErrorString();}$3"
+  "getShowAnnotations":
+    prefix: "getShowAnnotations"
+    body: "getShowAnnotations(${1:});${2: getErrorString();}$3"
+  "getSimulationOptions":
+    prefix: "getSimulationOptions"
+    body: "getSimulationOptions(${1:name, defaultStartTime, defaultStopTime, defaultTolerance, defaultNumberOfIntervals, defaultInterval});${2: getErrorString();}$3"
+  "getSourceFile":
+    prefix: "getSourceFile"
+    body: "getSourceFile(${1:class_});${2: getErrorString();}$3"
+  "getTearingMethod":
+    prefix: "getTearingMethod"
+    body: "getTearingMethod(${1:});${2: getErrorString();}$3"
+  "getTempDirectoryPath":
+    prefix: "getTempDirectoryPath"
+    body: "getTempDirectoryPath(${1:});${2: getErrorString();}$3"
+  "getTimeStamp":
+    prefix: "getTimeStamp"
+    body: "getTimeStamp(${1:cl});${2: getErrorString();}$3"
+  "getTransitions":
+    prefix: "getTransitions"
+    body: "getTransitions(${1:cl});${2: getErrorString();}$3"
+  "getUsedClassNames":
+    prefix: "getUsedClassNames"
+    body: "getUsedClassNames(${1:className});${2: getErrorString();}$3"
+  "getUses":
+    prefix: "getUses"
+    body: "getUses(${1:pack});${2: getErrorString();}$3"
+  "getVectorizationLimit":
+    prefix: "getVectorizationLimit"
+    body: "getVectorizationLimit(${1:});${2: getErrorString();}$3"
+  "getVersion":
+    prefix: "getVersion"
+    body: "getVersion(${1:cl});${2: getErrorString();}$3"
+  "help":
+    prefix: "help"
+    body: "help(${1:topic});${2: getErrorString();}$3"
+  "iconv":
+    prefix: "iconv"
+    body: "iconv(${1:string, from, to});${2: getErrorString();}$3"
+  "importFMU":
+    prefix: "importFMU"
+    body: "importFMU(${1:filename, workdir, loglevel, fullPath, debugLogging, generateInputConnectors, generateOutputConnectors});${2: getErrorString();}$3"
+  "importFMUModelDescription":
+    prefix: "importFMUModelDescription"
+    body: "importFMUModelDescription(${1:filename, workdir, loglevel, fullPath, debugLogging, generateInputConnectors, generateOutputConnectors});${2: getErrorString();}$3"
+  "inferBindings":
+    prefix: "inferBindings"
+    body: "inferBindings(${1:path});${2: getErrorString();}$3"
+  "instantiateModel":
+    prefix: "instantiateModel"
+    body: "instantiateModel(${1:className});${2: getErrorString();}$3"
+  "isBlock":
+    prefix: "isBlock"
+    body: "isBlock(${1:cl});${2: getErrorString();}$3"
+  "isClass":
+    prefix: "isClass"
+    body: "isClass(${1:cl});${2: getErrorString();}$3"
+  "isConnector":
+    prefix: "isConnector"
+    body: "isConnector(${1:cl});${2: getErrorString();}$3"
+  "isEnumeration":
+    prefix: "isEnumeration"
+    body: "isEnumeration(${1:cl});${2: getErrorString();}$3"
+  "isExperiment":
+    prefix: "isExperiment"
+    body: "isExperiment(${1:name});${2: getErrorString();}$3"
+  "isFunction":
+    prefix: "isFunction"
+    body: "isFunction(${1:cl});${2: getErrorString();}$3"
+  "isModel":
+    prefix: "isModel"
+    body: "isModel(${1:cl});${2: getErrorString();}$3"
+  "isOperator":
+    prefix: "isOperator"
+    body: "isOperator(${1:cl});${2: getErrorString();}$3"
+  "isOperatorFunction":
+    prefix: "isOperatorFunction"
+    body: "isOperatorFunction(${1:cl});${2: getErrorString();}$3"
+  "isOperatorRecord":
+    prefix: "isOperatorRecord"
+    body: "isOperatorRecord(${1:cl});${2: getErrorString();}$3"
+  "isOptimization":
+    prefix: "isOptimization"
+    body: "isOptimization(${1:cl});${2: getErrorString();}$3"
+  "isPackage":
+    prefix: "isPackage"
+    body: "isPackage(${1:cl});${2: getErrorString();}$3"
+  "isPartial":
+    prefix: "isPartial"
+    body: "isPartial(${1:cl});${2: getErrorString();}$3"
+  "isProtectedClass":
+    prefix: "isProtectedClass"
+    body: "isProtectedClass(${1:cl, c2});${2: getErrorString();}$3"
+  "isRecord":
+    prefix: "isRecord"
+    body: "isRecord(${1:cl});${2: getErrorString();}$3"
+  "isShortDefinition":
+    prefix: "isShortDefinition"
+    body: "isShortDefinition(${1:class_});${2: getErrorString();}$3"
+  "isType":
+    prefix: "isType"
+    body: "isType(${1:cl});${2: getErrorString();}$3"
+  "linearize":
+    prefix: "linearize"
+    body: "linearize(${1:className, startTime, stopTime, numberOfIntervals, stepSize, tolerance, method, fileNamePrefix, storeInTemp, noClean, options, outputFormat, variableFilter, cflags, simflags});${2: getErrorString();}$3"
+  "list":
+    prefix: "list"
+    body: "list(${1:class_, interfaceOnly, shortOnly, exportKind});${2: getErrorString();}$3"
+  "listFile":
+    prefix: "listFile"
+    body: "listFile(${1:class_});${2: getErrorString();}$3"
+  "listVariables":
+    prefix: "listVariables"
+    body: "listVariables(${1:});${2: getErrorString();}$3"
+  "loadFile":
+    prefix: "loadFile"
+    body: "loadFile(${1:fileName, encoding, uses});${2: getErrorString();}$3"
+  "loadFileInteractive":
+    prefix: "loadFileInteractive"
+    body: "loadFileInteractive(${1:filename, encoding});${2: getErrorString();}$3"
+  "loadFileInteractiveQualified":
+    prefix: "loadFileInteractiveQualified"
+    body: "loadFileInteractiveQualified(${1:filename, encoding});${2: getErrorString();}$3"
+  "loadFiles":
+    prefix: "loadFiles"
+    body: "loadFiles(${1:fileNames, encoding, numThreads});${2: getErrorString();}$3"
+  "loadModel":
+    prefix: "loadModel"
+    body: "loadModel(${1:className, priorityVersion, notify, languageStandard, requireExactVersion});${2: getErrorString();}$3"
+  "loadModelica3D":
+    prefix: "loadModelica3D"
+    body: "loadModelica3D(${1:version});${2: getErrorString();}$3"
+  "loadString":
+    prefix: "loadString"
+    body: "loadString(${1:data, filename, encoding, merge});${2: getErrorString();}$3"
+  "mkdir":
+    prefix: "mkdir"
+    body: "mkdir(${1:newDirectory});${2: getErrorString();}$3"
+  "moveClass":
+    prefix: "moveClass"
+    body: "moveClass(${1:className, offset});${2: getErrorString();}$3"
+  "moveClassToBottom":
+    prefix: "moveClassToBottom"
+    body: "moveClassToBottom(${1:className});${2: getErrorString();}$3"
+  "moveClassToTop":
+    prefix: "moveClassToTop"
+    body: "moveClassToTop(${1:className});${2: getErrorString();}$3"
+  "ngspicetoModelica":
+    prefix: "ngspicetoModelica"
+    body: "ngspicetoModelica(${1:netlistfileName});${2: getErrorString();}$3"
+  "numProcessors":
+    prefix: "numProcessors"
+    body: "numProcessors(${1:});${2: getErrorString();}$3"
+  "optimize":
+    prefix: "optimize"
+    body: "optimize(${1:className, startTime, stopTime, numberOfIntervals, stepSize, tolerance, method, fileNamePrefix, storeInTemp, noClean, options, outputFormat, variableFilter, cflags, simflags});${2: getErrorString();}$3"
+  "parseFile":
+    prefix: "parseFile"
+    body: "parseFile(${1:filename, encoding});${2: getErrorString();}$3"
+  "parseString":
+    prefix: "parseString"
+    body: "parseString(${1:data, filename});${2: getErrorString();}$3"
+  "plot":
+    prefix: "plot"
+    body: "plot(${1:vars, externalWindow, fileName, title, grid, logX, logY, xLabel, yLabel, xRange[2], yRange[2], curveWidth, curveStyle, legendPosition, footer, autoScale, forceOMPlot});${2: getErrorString();}$3"
+  "plotAll":
+    prefix: "plotAll"
+    body: "plotAll(${1:externalWindow, fileName, title, grid, logX, logY, xLabel, yLabel, xRange[2], yRange[2], curveWidth, curveStyle, legendPosition, footer, autoScale, forceOMPlot});${2: getErrorString();}$3"
+  "plotParametric":
+    prefix: "plotParametric"
+    body: "plotParametric(${1:xVariable, yVariable, externalWindow, fileName, title, grid, logX, logY, xLabel, yLabel, xRange[2], yRange[2], curveWidth, curveStyle, legendPosition, footer, autoScale, forceOMPlot});${2: getErrorString();}$3"
+  "readFile":
+    prefix: "readFile"
+    body: "readFile(${1:fileName});${2: getErrorString();}$3"
+  "readFileNoNumeric":
+    prefix: "readFileNoNumeric"
+    body: "readFileNoNumeric(${1:fileName});${2: getErrorString();}$3"
+  "readSimulationResult":
+    prefix: "readSimulationResult"
+    body: "readSimulationResult(${1:filename, variables, size});${2: getErrorString();}$3"
+  "readSimulationResultSize":
+    prefix: "readSimulationResultSize"
+    body: "readSimulationResultSize(${1:fileName});${2: getErrorString();}$3"
+  "readSimulationResultVars":
+    prefix: "readSimulationResultVars"
+    body: "readSimulationResultVars(${1:fileName, readParameters, openmodelicaStyle});${2: getErrorString();}$3"
+  "realpath":
+    prefix: "realpath"
+    body: "realpath(${1:name});${2: getErrorString();}$3"
+  "regex":
+    prefix: "regex"
+    body: "regex(${1:str, re, maxMatches, extended, caseInsensitive});${2: getErrorString();}$3"
+  "regexBool":
+    prefix: "regexBool"
+    body: "regexBool(${1:str, re, extended, caseInsensitive});${2: getErrorString();}$3"
+  "regularFileExists":
+    prefix: "regularFileExists"
+    body: "regularFileExists(${1:fileName});${2: getErrorString();}$3"
+  "reloadClass":
+    prefix: "reloadClass"
+    body: "reloadClass(${1:name, encoding});${2: getErrorString();}$3"
+  "remove":
+    prefix: "remove"
+    body: "remove(${1:path});${2: getErrorString();}$3"
+  "removeComponentModifiers":
+    prefix: "removeComponentModifiers"
+    body: "removeComponentModifiers(${1:class_, componentName, keepRedeclares});${2: getErrorString();}$3"
+  "removeExtendsModifiers":
+    prefix: "removeExtendsModifiers"
+    body: "removeExtendsModifiers(${1:className, baseClassName, keepRedeclares});${2: getErrorString();}$3"
+  "reopenStandardStream":
+    prefix: "reopenStandardStream"
+    body: "reopenStandardStream(${1:_stream, filename});${2: getErrorString();}$3"
+  "rewriteBlockCall":
+    prefix: "rewriteBlockCall"
+    body: "rewriteBlockCall(${1:className, inDefs});${2: getErrorString();}$3"
+  "runOpenTURNSPythonScript":
+    prefix: "runOpenTURNSPythonScript"
+    body: "runOpenTURNSPythonScript(${1:pythonScriptFile});${2: getErrorString();}$3"
+  "runScript":
+    prefix: "runScript"
+    body: "runScript(${1:fileName});${2: getErrorString();}$3"
+  "runScriptParallel":
+    prefix: "runScriptParallel"
+    body: "runScriptParallel(${1:scripts[:], numThreads, useThreads});${2: getErrorString();}$3"
+  "save":
+    prefix: "save"
+    body: "save(${1:className});${2: getErrorString();}$3"
+  "saveAll":
+    prefix: "saveAll"
+    body: "saveAll(${1:fileName});${2: getErrorString();}$3"
+  "saveModel":
+    prefix: "saveModel"
+    body: "saveModel(${1:fileName, className});${2: getErrorString();}$3"
+  "saveTotalModel":
+    prefix: "saveTotalModel"
+    body: "saveTotalModel(${1:fileName, className});${2: getErrorString();}$3"
+  "saveTotalSCode":
+    prefix: "saveTotalSCode"
+    body: "saveTotalSCode(${1:});${2: getErrorString();}$3"
+  "searchClassNames":
+    prefix: "searchClassNames"
+    body: "searchClassNames(${1:searchText, findInText});${2: getErrorString();}$3"
+  "setAnnotationVersion":
+    prefix: "setAnnotationVersion"
+    body: "setAnnotationVersion(${1:annotationVersion});${2: getErrorString();}$3"
+  "setCFlags":
+    prefix: "setCFlags"
+    body: "setCFlags(${1:inString});${2: getErrorString();}$3"
+  "setCXXCompiler":
+    prefix: "setCXXCompiler"
+    body: "setCXXCompiler(${1:compiler});${2: getErrorString();}$3"
+  "setCheapMatchingAlgorithm":
+    prefix: "setCheapMatchingAlgorithm"
+    body: "setCheapMatchingAlgorithm(${1:matchingAlgorithm});${2: getErrorString();}$3"
+  "setClassComment":
+    prefix: "setClassComment"
+    body: "setClassComment(${1:class_, filename});${2: getErrorString();}$3"
+  "setCommandLineOptions":
+    prefix: "setCommandLineOptions"
+    body: "setCommandLineOptions(${1:option});${2: getErrorString();}$3"
+  "setCompileCommand":
+    prefix: "setCompileCommand"
+    body: "setCompileCommand(${1:compileCommand});${2: getErrorString();}$3"
+  "setCompiler":
+    prefix: "setCompiler"
+    body: "setCompiler(${1:compiler});${2: getErrorString();}$3"
+  "setCompilerFlags":
+    prefix: "setCompilerFlags"
+    body: "setCompilerFlags(${1:compilerFlags});${2: getErrorString();}$3"
+  "setCompilerPath":
+    prefix: "setCompilerPath"
+    body: "setCompilerPath(${1:compilerPath});${2: getErrorString();}$3"
+  "setDebugFlags":
+    prefix: "setDebugFlags"
+    body: "setDebugFlags(${1:debugFlags});${2: getErrorString();}$3"
+  "setDefaultOpenCLDevice":
+    prefix: "setDefaultOpenCLDevice"
+    body: "setDefaultOpenCLDevice(${1:defdevid});${2: getErrorString();}$3"
+  "setDocumentationAnnotation":
+    prefix: "setDocumentationAnnotation"
+    body: "setDocumentationAnnotation(${1:class_, info, revisions});${2: getErrorString();}$3"
+  "setEnvironmentVar":
+    prefix: "setEnvironmentVar"
+    body: "setEnvironmentVar(${1:var, value});${2: getErrorString();}$3"
+  "setIndexReductionMethod":
+    prefix: "setIndexReductionMethod"
+    body: "setIndexReductionMethod(${1:method});${2: getErrorString();}$3"
+  "setInitXmlStartValue":
+    prefix: "setInitXmlStartValue"
+    body: "setInitXmlStartValue(${1:fileName, variableName, startValue, outputFile});${2: getErrorString();}$3"
+  "setInstallationDirectoryPath":
+    prefix: "setInstallationDirectoryPath"
+    body: "setInstallationDirectoryPath(${1:installationDirectoryPath});${2: getErrorString();}$3"
+  "setLanguageStandard":
+    prefix: "setLanguageStandard"
+    body: "setLanguageStandard(${1:inVersion});${2: getErrorString();}$3"
+  "setLinker":
+    prefix: "setLinker"
+    body: "setLinker(${1:linker});${2: getErrorString();}$3"
+  "setLinkerFlags":
+    prefix: "setLinkerFlags"
+    body: "setLinkerFlags(${1:linkerFlags});${2: getErrorString();}$3"
+  "setMatchingAlgorithm":
+    prefix: "setMatchingAlgorithm"
+    body: "setMatchingAlgorithm(${1:matchingAlgorithm});${2: getErrorString();}$3"
+  "setModelicaPath":
+    prefix: "setModelicaPath"
+    body: "setModelicaPath(${1:modelicaPath});${2: getErrorString();}$3"
+  "setNoSimplify":
+    prefix: "setNoSimplify"
+    body: "setNoSimplify(${1:noSimplify});${2: getErrorString();}$3"
+  "setOrderConnections":
+    prefix: "setOrderConnections"
+    body: "setOrderConnections(${1:orderConnections});${2: getErrorString();}$3"
+  "setPlotCommand":
+    prefix: "setPlotCommand"
+    body: "setPlotCommand(${1:plotCommand});${2: getErrorString();}$3"
+  "setPostOptModules":
+    prefix: "setPostOptModules"
+    body: "setPostOptModules(${1:modules});${2: getErrorString();}$3"
+  "setPreOptModules":
+    prefix: "setPreOptModules"
+    body: "setPreOptModules(${1:modules});${2: getErrorString();}$3"
+  "setShowAnnotations":
+    prefix: "setShowAnnotations"
+    body: "setShowAnnotations(${1:show});${2: getErrorString();}$3"
+  "setSourceFile":
+    prefix: "setSourceFile"
+    body: "setSourceFile(${1:class_, filename});${2: getErrorString();}$3"
+  "setTearingMethod":
+    prefix: "setTearingMethod"
+    body: "setTearingMethod(${1:tearingMethod});${2: getErrorString();}$3"
+  "setTempDirectoryPath":
+    prefix: "setTempDirectoryPath"
+    body: "setTempDirectoryPath(${1:tempDirectoryPath});${2: getErrorString();}$3"
+  "setVectorizationLimit":
+    prefix: "setVectorizationLimit"
+    body: "setVectorizationLimit(${1:vectorizationLimit});${2: getErrorString();}$3"
+  "simulate":
+    prefix: "simulate"
+    body: "simulate(${1:className, startTime, stopTime, numberOfIntervals, tolerance, method, fileNamePrefix, options, outputFormat, variableFilter, cflags, simflags});${2: getErrorString();}$3"
+  "solveLinearSystem":
+    prefix: "solveLinearSystem"
+    body: "solveLinearSystem(${1:A, B, solver, isInt});${2: getErrorString();}$3"
+  "sortStrings":
+    prefix: "sortStrings"
+    body: "sortStrings(${1:arr[:]});${2: getErrorString();}$3"
+  "stringReplace":
+    prefix: "stringReplace"
+    body: "stringReplace(${1:str, source, target});${2: getErrorString();}$3"
+  "stringSplit":
+    prefix: "stringSplit"
+    body: "stringSplit(${1:string, token});${2: getErrorString();}$3"
+  "stringTypeName":
+    prefix: "stringTypeName"
+    body: "stringTypeName(${1:str});${2: getErrorString();}$3"
+  "stringVariableName":
+    prefix: "stringVariableName"
+    body: "stringVariableName(${1:str});${2: getErrorString();}$3"
+  "strtok":
+    prefix: "strtok"
+    body: "strtok(${1:string, token});${2: getErrorString();}$3"
+  "system":
+    prefix: "system"
+    body: "system(${1:callStr, outputFile});${2: getErrorString();}$3"
+  "system_parallel":
+    prefix: "system_parallel"
+    body: "system_parallel(${1:callStr[:], numThreads});${2: getErrorString();}$3"
+  "testsuiteFriendlyName":
+    prefix: "testsuiteFriendlyName"
+    body: "testsuiteFriendlyName(${1:path});${2: getErrorString();}$3"
+  "threadWorkFailed":
+    prefix: "threadWorkFailed"
+    body: "threadWorkFailed(${1:});${2: getErrorString();}$3"
+  "translateGraphics":
+    prefix: "translateGraphics"
+    body: "translateGraphics(${1:className});${2: getErrorString();}$3"
+  "translateModelFMU":
+    prefix: "translateModelFMU"
+    body: "translateModelFMU(${1:className, version, fmuType, fileNamePrefix});${2: getErrorString();}$3"
+  "typeNameString":
+    prefix: "typeNameString"
+    body: "typeNameString(${1:cl});${2: getErrorString();}$3"
+  "typeNameStrings":
+    prefix: "typeNameStrings"
+    body: "typeNameStrings(${1:cl});${2: getErrorString();}$3"
+  "typeOf":
+    prefix: "typeOf"
+    body: "typeOf(${1:variableName});${2: getErrorString();}$3"
+  "updateTransition":
+    prefix: "updateTransition"
+    body: "updateTransition(${1:cl, from, to, oldCondition, oldImmediate, oldReset, oldSynchronize, oldPriority, newCondition, newImmediate, newReset, newSynchronize, newPriority, annotate});${2: getErrorString();}$3"
+  "uriToFilename":
+    prefix: "uriToFilename"
+    body: "uriToFilename(${1:uri});${2: getErrorString();}$3"
+  "val":
+    prefix: "val"
+    body: "val(${1:var, timePoint, fileName});${2: getErrorString();}$3"
+  "verifyCompiler":
+    prefix: "verifyCompiler"
+    body: "verifyCompiler(${1:});${2: getErrorString();}$3"
+  "writeFile":
+    prefix: "writeFile"
+    body: "writeFile(${1:fileName, data, append});${2: getErrorString();}$3"

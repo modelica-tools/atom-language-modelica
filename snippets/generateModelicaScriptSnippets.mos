@@ -1,0 +1,67 @@
+// This script generates the modelicascript.cson file.
+// Usage: omc generateModelicaScriptSnippets.mos
+// Author: Lennart Ochel
+
+loadString("
+function trim
+  input String s;
+  output String o;
+protected
+  String a[1];
+algorithm
+  (,a) := OpenModelica.Scripting.regex(s, \"[^ ].*\");
+  o := a[1];
+end trim;
+
+function trim2
+  input String s;
+  output String o;
+algorithm
+  o := OpenModelica.Scripting.stringReplace(s, \"OpenModelica.Scripting.\", \"\");
+end trim2;
+
+function trim3
+  input String s;
+  output String o;
+protected
+  String a[:];
+algorithm
+  o := trim(s);
+  o := OpenModelica.Scripting.stringReplace(o, \";\", \" \");
+  a := OpenModelica.Scripting.stringSplit(o, \" \");
+
+  o := a[3];
+end trim3;
+"); getErrorString();
+
+str := "\".source.modelicascript\":\n";
+str := str + "  \"comments\":\n";
+str := str + "    prefix: \"/*\"\n";
+str := str + "    body: \"/* $1 */\"\n";
+
+for cl in getClassNames(OpenModelica.Scripting, sort=true, recursive=true) loop
+  if isFunction(cl) and not isPartial(cl) and not regexBool(typeNameString(cl), "Internal") and not regexBool(typeNameString(cl), "Experimental") then
+    name := trim2(typeNameString(cl));
+
+    str := str + "  \"" + name + "\":\n";
+    str := str + "    prefix: \"" + name + "\"\n";
+    str := str + "    body: \"" + name + "(${1:";
+
+    s := OpenModelica.Scripting.list(cl, interfaceOnly=true);
+    for l in OpenModelica.Scripting.strtok(s, "\n") loop
+      if regexBool(l, "input ") then
+        str := str + trim3(l) + ", ";
+      end if;
+    end for;
+
+    if regexBool(name, "getErrorString") then
+      str := str + "});$2\"\n";
+    else
+      str := str + "});${2: getErrorString();}$3\"\n";
+    end if;
+  end if;
+end for;
+str := OpenModelica.Scripting.stringReplace(str, ", });", "});");
+str := OpenModelica.Scripting.stringReplace(str, "1),", "A");
+
+writeFile("modelicascript.cson", str); getErrorString();
