@@ -499,7 +499,7 @@
     body: "loadFiles(${1:fileNames, encoding, numThreads});${2: getErrorString();}$3"
   "loadModel":
     prefix: "loadModel"
-    body: "loadModel(${1:className, priorityVersion, notify, languageStandard, requireExactVersion});${2: getErrorString();}$3"
+    body: "loadModel(${1:className}, priorityVersion={\"${2:default}\"}, notify=${3:false}, languageStandard=${4:\"\"}, requireExactVersion=${5:false});${6: getErrorString();}$7"
   "loadModelica3D":
     prefix: "loadModelica3D"
     body: "loadModelica3D(${1:version});${2: getErrorString();}$3"
@@ -712,7 +712,7 @@
     body: "setVectorizationLimit(${1:vectorizationLimit});${2: getErrorString();}$3"
   "simulate":
     prefix: "simulate"
-    body: "simulate(${1:className, startTime, stopTime, numberOfIntervals, tolerance, method, fileNamePrefix, options, outputFormat, variableFilter, cflags, simflags});${2: getErrorString();}$3"
+    body: "simulate(${1:className}, startTime=${2:0.0}, stopTime=${3:1.0}, numberOfIntervals=${4:500}, tolerance=${5:1e-6}, method=${6:dassl}, fileNamePrefix=${7:\"\"}, options=${8:\"\"}, outputFormat=${9:\"mat\"}, variableFilter=${10:\".*\"}, cflags=${11:\"\"}, simflags=${12:\"\"});${13: getErrorString();}$14"
   "solveLinearSystem":
     prefix: "solveLinearSystem"
     body: "solveLinearSystem(${1:A, B, solver, isInt});${2: getErrorString();}$3"
