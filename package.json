@@ -1,7 +1,7 @@
 {
   "name": "language-modelica",
   "main": "./lib/modelica",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Modelica grammar support",
   "repository": "https://github.com/modelica-tools/atom-language-modelica",
   "license": "MIT",
